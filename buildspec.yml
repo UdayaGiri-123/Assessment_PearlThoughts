@@ -14,10 +14,11 @@ phases:
       - npm i ./package.json
   build:
     commands:
-      - docker build -t 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123:latest .
-      - docker tag 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123:latest 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker build -f Dockerfile.notification -t 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123/notification:latest .
+      - docker build -f Dockerfile.email -t 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123/email:latest .
+     # - docker tag 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123:latest 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123:$CODEBUILD_RESOLVED_SOURCE_VERSION
   post_build:
     commands:
-      - docker push 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123:latest
-      - docker push 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      #- docker push 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123:latest
+      #- docker push 851725252478.dkr.ecr.us-east-1.amazonaws.com/repo-notification.123:$CODEBUILD_RESOLVED_SOURCE_VERSION
 
