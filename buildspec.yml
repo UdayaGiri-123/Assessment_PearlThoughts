@@ -6,9 +6,8 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      "nodejs:18-alpine"
-
+    runtime-versions: 
+      nodejs:18
   pre_build:
     commands:
       - npm i ./package.json
